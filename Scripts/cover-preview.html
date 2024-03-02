@@ -1,0 +1,23 @@
+<head>
+	<style>
+		@font-face {
+			font-family: 'Courier Prime Regular';
+			src: url('CourierPrime-Subset.ttf');
+		}
+		/* Using a webfont from a Canvas requires some hacks... */
+		div {
+			font-family: 'Courier Prime Regular';
+		}
+	</style>
+</head>
+<body>
+	<canvas></canvas>
+	<!-- The webfont has to be used somewhere in the page -->
+	<div>.</div>
+	<script type="module">
+		import { initBrowserCanvas, drawCover } from './cover.js';
+		await document.fonts.ready;
+		const ctx = initBrowserCanvas();
+		drawCover(ctx);
+	</script>
+</body>
