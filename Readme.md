@@ -4,13 +4,9 @@ This is an open-source music album based on [ambient.garden](https://github.com/
 
 Musically, I tried to escape sounds commonly associated with generative music. The album is based on microtonal harmony and just-intonation, played by organic-sounding, physically modeled instruments which are heavily layered. The result is a deep style of ambient, with ethereal and classical influences.
 
-## Listen to a pre-built version of the album
-
-You can hear the album on [Spotify](https://open.spotify.com/album/6RPvBkBjCymWOk7BeONDv4) and [Apple Music](https://music.apple.com/us/album/a-walk-through-the-ambient-garden/1732863542). This repository only contains the source code to re-create the album, the nerd way.
-
 ## Build the album
 
-The build script has 2 requirements:
+This repository only contains the source code to re-create the album, the nerd way. The build script has 2 requirements:
 
 - Deno, to run JS code. You can download it as a [single binary](https://github.com/denoland/deno/releases) or [install it properly](https://docs.deno.com/runtime/manual) if you prefer.
 - [FFmpeg.](https://ffmpeg.org/download.html), for audio encoding.
