@@ -2,11 +2,15 @@
 
 This is an open-source music album based on [ambient.garden](https://github.com/pac-dev/AmbientGarden), an explorable musical landscape. This album contains the same musical elements as the landscape, but instead of being interactive, it's written as a deterministic composition. Everything is generated from code without using any pre-existing audio samples.
 
-Musically, I tried to escape sounds commonly associated with generative music. The album is based on microtonal harmony and just-intonation, played by organic-sounding, physically modeled instruments which are heavily layered. The result is a deep style of ambient, with ethereal and classical influences.
+Musically, I tried to escape sounds commonly associated with generative music. No AI models are used at any point, the composition is algorithmic but deliberate. The album is based on microtonal harmony and just-intonation, played by organic-sounding, physically modeled instruments which are heavily layered. The result is a deep style of ambient, with ethereal and classical influences.
+
+## Listen to a pre-built version of the album
+
+You can hear the album on [Spotify](https://open.spotify.com/album/6RPvBkBjCymWOk7BeONDv4), [Apple Music](https://music.apple.com/us/album/a-walk-through-the-ambient-garden/1732863542), and [Bandcamp](https://purecode.bandcamp.com/album/a-walk-through-the-ambient-garden). Or you can build the album from code, the nerd way.
 
 ## Build the album
 
-This repository only contains the source code to re-create the album, the nerd way. The build script has 2 requirements:
+This repository has no audio files, but contains the full source code to re-create the album. The build script has 2 requirements:
 
 - Deno, to run JS code. You can download it as a [single binary](https://github.com/denoland/deno/releases) or [install it properly](https://docs.deno.com/runtime/manual) if you prefer.
 - [FFmpeg.](https://ffmpeg.org/download.html), for audio encoding.
