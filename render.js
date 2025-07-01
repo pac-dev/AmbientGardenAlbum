@@ -104,7 +104,7 @@ const encodeAlbum = async (inDir, outDir, format='mp3', ffargs=[], cover='') => 
 		'-metadata:s:v','title="Album cover"', '-metadata:s:v', 'comment="Cover (front)"'
 	] : [];
 	ffargs = [...coverArgs, ...ffargs];
-	const fileNames = [...Deno.readDirSync(inDir)].map(f => f.name);
+	const fileNames = [...Deno.readDirSync(inDir)].map(f => f.name).sort();
 	for (const [idx, fileName] of fileNames.entries()) {
 		const title = fileName.replace(/\.wav$/, '').replace(/^\d+\.\s?/, '');
 		const inPath = path.join(inDir, fileName);
@@ -125,7 +125,8 @@ const renderAlbum = async (format='mp3', ffargs=['-b:a', '290k'], partial=false)
 	toDelete.filter(existsSync).forEach(d => Deno.removeSync(d, { recursive: true }));
 	const trackNames = [...Deno.readDirSync(macroDir)]
 		.filter(f => f.name.endsWith('.tmac'))
-		.map(f => f.name.slice(0, -5));
+		.map(f => f.name.slice(0, -5))
+		.sort();
 	console.log(`\nRendering tracks to "${stage1Dir}"...`);
 	for (const name of trackNames) {
 		const outPath = path.join(stage1Dir, name+'.wav');

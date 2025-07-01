@@ -61,14 +61,20 @@ export const overlapAlbum = async (inDir, stageDir, outDir, overlap=8) => {
 	if (!outDir.endsWith(sep)) outDir += sep;
 	Deno.mkdirSync(stageDir, { recursive: true });
 	Deno.mkdirSync(outDir, { recursive: true });
-	const inNames = [...Deno.readDirSync(inDir)].filter(f => f.name.endsWith('.wav')).map(f => f.name);
+	const inNames = [...Deno.readDirSync(inDir)]
+		.filter(f => f.name.endsWith('.wav'))
+		.map(f => f.name)
+		.sort();
 	const lengths = [];
 	for (const name of inNames) lengths.push((await getDuration(inDir + name)) - overlap);
 	for (const [idx, name] of inNames.entries()) {
 		if (idx) await mixTail(inDir + inNames[idx-1], inDir + name, stageDir + name, lengths[idx-1]);
 		else Deno.copyFileSync(inDir + name, stageDir + name);
 	}
-	const stageNames = [...Deno.readDirSync(stageDir)].filter(f => f.name.endsWith('.wav')).map(f => f.name);
+	const stageNames = [...Deno.readDirSync(stageDir)]
+		.filter(f => f.name.endsWith('.wav'))
+		.map(f => f.name)
+		.sort();
 	for (const [idx, name] of stageNames.entries()) {
 		const next = stageNames[idx+1];
 		if (next) await trimTail(stageDir + name, outDir + name, lengths[idx]);
